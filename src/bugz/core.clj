@@ -1,7 +1,12 @@
 (ns bugz.core
-  (:gen-class))
+  (:gen-class)
+  (:use seesaw.core))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(defn -main [& args]
+  (invoke-later
+    (-> (frame :title "Hello",
+            :content "Hellow, Seesaw",
+            :on-close :exit)
+    pack!
+    show!)))
+
