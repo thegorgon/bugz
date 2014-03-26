@@ -2,23 +2,6 @@
   (:gen-class)
   (:use seesaw.core))
 
-
-(defn build-world [] (atom {}))
-
-
-
-;; {:sugar-spots
-;;  [{:location [x y] :qty 100}]
-;;  :trails
-;;  :colonies
-;;  [
-;;   {:ants []
-;;    :sugar 0
-;;    :holes []}]}
-
-(def x (ref 10))
-(def y (ref 0))
-
 (defn build-frame []
   (-> (frame :title "howdy"
              :width 400
@@ -28,8 +11,25 @@
   (show! f))
 
 
+;; { :sugar-spots [{ :location [x y] :qty 100 }]
+;;   :grid [
+;;       [{ :sugar 0 :scents [] :ants [] :holes [] }]
+;;     ]
+;;   :colonies [
+;;       { :ants [{:sugar 1 }]
+;;         :sugar 0
+;;         :holes [] }
+;;       { :ants []
+;;         :sugar 0
+;;         :holes [] }
+;;     ]
+;; }
 
-
-
-(defn -main [& args])
+(defn -main [& args]
+  (invoke-later
+    (-> (frame :title "Hello",
+            :content "Hellow, Seesaw",
+            :on-close :exit)
+    pack!
+    show!)))
 
