@@ -1,15 +1,5 @@
 (ns bugz.core
-  (:gen-class)
-  (:use seesaw.core))
-
-(defn build-frame []
-  (-> (frame :title "howdy"
-             :width 400
-             :height 400)))
-
-(defn show-frame [f]
-  (show! f))
-
+  (:gen-class))
 
 ;; { :sugar-spots [{ :location [x y] :qty 100 }]
 ;;   :grid [
@@ -25,11 +15,5 @@
 ;;     ]
 ;; }
 
-(defn -main [& args]
-  (invoke-later
-    (-> (frame :title "Hello",
-            :content "Hellow, Seesaw",
-            :on-close :exit)
-    pack!
-    show!)))
+(defn -main [& args])
 
